@@ -46,7 +46,10 @@ export const signup = async (req, res) => {
       lastName,
       emailAddress
     );
+    // creates a new token using the user object returned.
     const token = newToken(user);
+
+    // Sends the token to the frontend to be stored in state!
     return res.status(201).send({ token });
   } catch (e) {
     console.log(e);
